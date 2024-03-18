@@ -42,6 +42,12 @@ services:
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
+          "  - name: logstash01\n"\
+          "    dns:\n"\
+          "      - logstash01\n"\
+          "      - localhost\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
           "  - name: kibana\n"\
           "    dns:\n"\
           "      - kibana\n"\
@@ -203,7 +209,7 @@ services:
       co.elastic.logs/module: logstash
     user: root
     volumes:
-      - certs:/usr/share/logstash/certs
+      - certs:/usr/share/logstash01/certs
       - logstashdata01:/usr/share/logstash/data
       - "./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
     ports:
